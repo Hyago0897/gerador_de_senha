@@ -1,5 +1,5 @@
 import random, time
-from . import *
+
 from os import system
 
 
