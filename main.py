@@ -1,5 +1,5 @@
 import random, time
-
+from escolher import (especiais, letras, numeros)
 from os import system
 
 
