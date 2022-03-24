@@ -1,16 +1,16 @@
-import random, time
-from escolher import (especiais, letras, numeros)
-from os import system
+import tkinter as tk
+from escolher import g_numero
+from interface import FrameSenha
+
+app = tk.Tk()
+
+menu = FrameSenha(app)
+menu.func = g_numero
+
+app.mainloop()
 
 
-def gerador(quant_caracter):
-    senha = ""
-    for c in range(quant_caracter):
-        senha = senha + str(random.randint(0,9))
-    
-    return senha
-
-
+"""
 def menu():
         quant_caracter = int(input("Informe a quantidade de caracteres da senha: "))
 
@@ -23,8 +23,6 @@ def menu():
         print(f'A SENHA GERADA É: {senha}')
 
         time.sleep(2)
-
-
 def main():
     while True:
         system("cls")
@@ -37,8 +35,5 @@ def main():
 
         if continuar.lower() == 'n':
             exit()
-        
-
-print(especiais)
-
 main()
+"""

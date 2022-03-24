@@ -1,0 +1,1 @@
+from .framesenha import FrameSenha
