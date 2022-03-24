@@ -1,9 +1,5 @@
-from cgitb import enable
-from os import read
 import tkinter as tk
 from tkinter import ttk
-
-from click import edit
 
 
 class FrameSenha(tk.Frame):
@@ -11,16 +7,17 @@ class FrameSenha(tk.Frame):
         tk.Frame.__init__(self, master)
         self._master = master
 
-        self.__func:function = None
-        self.__senha:str = any
+        self.__senha: classmethod = any
 
         self.container1 = tk.Frame(self._master)
         self.container2 = tk.Frame(self._master)
         self.container3 = tk.Frame(self._master)
 
-        self.Labelquant = tk.Label(self.container1, text="Informe a quantidade de caracteres: ")
+        self.Labelquant = tk.Label(
+            self.container1, text="Informe a quantidade de caracteres: ")
         self.quant = ttk.Spinbox(self.container1)
-        self.criar = tk.Button(self.container2, text="CRIAR SENHA", command=self.exibir_senha)
+        self.criar = tk.Button(
+            self.container2, text="CRIAR SENHA", command=self.exibir_senha)
         self.exibir = tk.Label(self.container3, text="A SENHA GERADA É: ")
 
         self.Labelquant.grid(row=0, column=0)
@@ -31,14 +28,6 @@ class FrameSenha(tk.Frame):
         self.container1.pack()
         self.container2.pack(pady=10)
         self.container3.pack()
-
-    @property
-    def func(self):
-        return self.__func
-
-    @func.setter
-    def func(self, func):
-        self.__func = func
 
     @property
     def senha(self):
@@ -52,9 +41,9 @@ class FrameSenha(tk.Frame):
         quant_caracteres = self.quant.get()
         try:
             quant_caracteres = int(quant_caracteres)
-            self.senha = self.func(quant_caracteres)
+            self.senha.gerar(quant_caracteres)
         except ValueError:
-            self.senha = self.func()
+            self.senha.gerar()
 
     def exibir_senha(self):
         self.nova_senha()
